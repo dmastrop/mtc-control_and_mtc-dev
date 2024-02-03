@@ -1,0 +1,48 @@
+# .gitignore for the mtc-control directory in the CI/CD terraform workspace on Cloud9. We need this because of terraform.tfvars data.
+
+# This .gitignore is for my course specifically. Keep in mind, you would also want to ignore 
+# .tfvars and ALL security keys in production. Those are here only for the benefit of the course and are not in use. 
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+**/*.tfstate
+**/*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Exclude all .tfvars files, which are likely to contain sentitive data, such as
+# password, private keys, and other secrets. These should not be part of version 
+# control as they are data points which are potentially sensitive and subject 
+# to change depending on the environment.
+
+# Note that in this project we are using terraform.auto.tfvars and this needs to be pushed to the repo
+# The .auto will be picked up by terraform cloud workspace and used accordingly. 
+# We can use regex to block .tfvars and allow .auto.tfvars, but for simplicity for now we will push all .tfvars
+# In production this would not be done....
+
+# This .gitignore file has been modified furhter. This one is in the mtc-dev directory that is not using .auto but just terraform.tfvars
+# This terraform.tfvars does have a lot of sensitive data so if we git init this directory we need to make sure that we have this .gitignore so
+# that the terraofrm.tfvars is not pushed to the git repo.
+#
+*.tfvars
+**/*.tfvars
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control using negated pattern
+#
+# !example_override.tf
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
