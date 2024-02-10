@@ -25,7 +25,12 @@ module "compute" {
   # change the tag version from 1.0.0 to 1.0.1 to reflect the change in the source code that we did in Cloud9 and the github repo.
   # the tagged chnges have been pushed to the terraform cloud module but we need to change it here so that the confnig designer main.tf
   # deploys the correct compute module version to AWS.
-  version = "1.0.1"
+  #version = "1.0.1"
+  
+  # change the tag version from 1.0.1 to 1.0.2 to refelct change in source code that we did in Cloud9 and github repo tag.
+  # The tagged delta has been pushed to terraform cloud module and it needs to be changed here so that config designer main.tf
+  # deploys the correct compute module version with instance count of 3 to AWS
+  version = "1.0.2"
 
   aws_region = "us-east-1"
   
